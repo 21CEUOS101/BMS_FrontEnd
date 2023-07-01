@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/BMS/static/css/main.be5e0416.css",
+    "main.js": "/BMS/static/js/main.9cad71e8.js",
+    "index.html": "/BMS/index.html",
+    "main.be5e0416.css.map": "/BMS/static/css/main.be5e0416.css.map",
+    "main.9cad71e8.js.map": "/BMS/static/js/main.9cad71e8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.be5e0416.css",
+    "static/js/main.9cad71e8.js"
+  ]
+}
