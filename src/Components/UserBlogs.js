@@ -2,14 +2,15 @@ import { Box, Grid } from '@mui/material';
 import React from 'react'
 import Blog from './Blog';
 import Axios from 'axios';
+import { AppContext } from '../App';
 
 function UserBlogs() {
 
   const [data, setData] = React.useState(new Array());
-  const uid = "649eb0b2e37f7b12a85e585a";
+  const {user} = React.useContext(AppContext);
   const getBlogs =  async () => {
-  
-    await Axios.get(`http://localhost:8080/getBlogsByBloggerId/${uid}`).then((response) => {
+    console.log(user.id);
+      return await Axios.get(`http://localhost:8080/getBlogsByBloggerId/${user.id}`).then((response) => {
       console.log(response.data);
       setData(response.data);
       return response.data;
@@ -18,9 +19,14 @@ function UserBlogs() {
   }
 
   React.useEffect(() => {
-    getBlogs();
+    if (user !== null && user !== undefined && user !== "") {
+      console.log(user);
+      getBlogs().then((data) => {
+        console.log(data);
+      });
+    }
     console.log(data);
-  }, []);
+  }, [user]);
   
   return (
     <Box sx={{ flexGrow: 1 }}>

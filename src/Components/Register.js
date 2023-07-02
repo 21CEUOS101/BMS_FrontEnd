@@ -84,7 +84,7 @@ function Register() {
                         console.log(data2);
                         if(data2 !== null) {
                             console.log("User Added Successfully");
-                            setUser(new User(data2.id, data2.name, data2.email, data2.password, data2.role, data2.createdAt, data2.blogsCount));
+                            setUser(new User(data2.idString, data2.name, data2.email, data2.password, data2.role, data2.createdAt, data2.blogsCount));
                             setIsLoggedIn(1);
                         } else {
                             console.log("User Not Added");

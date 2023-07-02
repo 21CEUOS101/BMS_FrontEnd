@@ -65,7 +65,7 @@ function Login() {
                     }
                     else {
                         console.log("User found");
-                        var user = new User(data.id, data.name, data.email, data.password, data.role, data.created_at, data.blogs.length);
+                        var user = new User(data.idString, data.name, data.email, data.password, data.role, data.created_at, data.blogs.length);
                         console.log(user.blogsCount);
                         setUser(user);
                         setIsLoggedIn(1);
