@@ -7,10 +7,12 @@ import Profile from './Components/Profile';
 import UserBlogs from './Components/UserBlogs';
 import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
-import { useState, createContext } from 'react';
+import React, { useState, createContext } from 'react';
 import LogOut from './Components/LogOut';
 import DisplayBlog from './Components/DisplayBlog';
 import MakeBlog from './Components/MakeBlog';
+import EditProfile from './Components/EditProfile';
+import UploadImage from './Components/UploadImage';
 export const AppContext = createContext();
 
 class User {
@@ -28,11 +30,11 @@ class User {
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(0);
   const [user, setUser] = useState(new User());
-
+  const [image, setImage] = React.useState("https://res.cloudinary.com/dhmfl6vxk/image/upload/v1688304591/samples/balloons.jpg");
 
   return (
     <div className='App'>
-      <AppContext.Provider value={{isLoggedIn,setIsLoggedIn,user,setUser}}>
+      <AppContext.Provider value={{isLoggedIn,setIsLoggedIn,user,setUser,image,setImage}}>
       <Router>
         <NavBar/>
         <Routes>
@@ -41,6 +43,8 @@ function App() {
           <Route path='/profile' element={isLoggedIn === 1 ? <Profile /> : <Login />} />
           <Route path='/myBlogs' element={isLoggedIn === 1 ? <UserBlogs /> : <Login />} />
           <Route path='/makeBlog' element={isLoggedIn === 1 ? <MakeBlog /> : <Login />} />
+          <Route path='/editProfile' element={isLoggedIn === 1 ? <EditProfile /> : <Login />} />
+          <Route path='/uploadImage' element={isLoggedIn === 1 ? <UploadImage /> : <Login />} />
           <Route path='/login' element={<Login />} />
           <Route path='/logout' element={isLoggedIn === 1 ? <LogOut /> : <Login />} />
           <Route path='/myBlogs/:id' element={isLoggedIn === 1 ? <DisplayBlog /> : <Login />} />

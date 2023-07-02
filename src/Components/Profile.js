@@ -1,9 +1,14 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../App';
-
+import { Link } from 'react-router-dom';
+import Axios from 'axios';
+import {Image} from 'cloudinary-react';
 function Profile() {
 
-    const {user , isLoggedIn} = useContext(AppContext); 
+    const { user, isLoggedIn,image } = useContext(AppContext); 
+    
+
+
   return (
     <section className="vh-100" style={{backgroundColor: "#9de2ff"}}>
         <div className="container-fluid py-5 h-100">
@@ -13,9 +18,14 @@ function Profile() {
                 <div className="card-body p-3">
                     <div className="d-flex text-black">
                     <div className="flex-shrink-0">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-                        alt="Generic placeholder image" className="img-fluid"
-                        style={{width: 180, borderRadius: 10}}/>
+                                      <Image style={{
+                                          borderRadius: 20,
+                                          width: 250,
+                                          height: 250,
+                                          overflow: 'hidden',
+                                          position: 'relative',
+                                          zIndex: 0
+                                      }} cloudName="dhmfl6vxk" publicId={image} />
                     </div>
                     <div className="flex-grow-1 ms-5 col-xl-30">
                         <h5 className="mb-1">{user.name}</h5>
@@ -36,8 +46,8 @@ function Profile() {
                         </div>
                         </div>
                         <div className="d-flex pt-1">
-                        <button type="button" className="btn btn-outline-primary me-1 flex-grow-1">Chat</button>
-                        <button type="button" className="btn btn-primary flex-grow-1">Follow</button>
+                        <Link to="/uploadImage" className="btn btn-primary btn-sm px-3 me-2">Upload Image</Link>
+                        <Link to="/editProfile">Edit Profile</Link>
                         </div>
                     </div>
                     </div>

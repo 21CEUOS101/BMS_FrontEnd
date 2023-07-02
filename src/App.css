@@ -102,3 +102,32 @@
       width : 500px;
       height : auto;
   }
+  
+  .custom-file-input {
+    /* Style the container for the custom file input */
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    color: #555;
+  }
+  
+  .custom-file-input:after {
+    /* Style the selected file name */
+    content: 'No file selected';
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #888;
+  }
+  
+  /* Show the selected file name when a file is chosen */
+  input[type="file"]:valid + .custom-file-input:after {
+    content: attr(data-name);
+    color: #333;
+  }
+  
+  

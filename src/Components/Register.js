@@ -82,7 +82,7 @@ function Register() {
                 } else {
                     addBlogger().then((data2) => {
                         console.log(data2);
-                        if(data2 !== null) {
+                        if(data2 !== null && data2 !== "" && data2 !== undefined) {
                             console.log("User Added Successfully");
                             setUser(new User(data2.idString, data2.name, data2.email, data2.password, data2.role, data2.createdAt, data2.blogsCount));
                             setIsLoggedIn(1);
@@ -93,16 +93,6 @@ function Register() {
                 }
             });
         }
-
-        // if(name !== "" && email !== "" && password !== "" && role !== "") {
-        //     addBlogger().then((data) => {
-        //         console.log(data);
-        //         if (data !== null) {
-        //             setUser(new User(data.id, data.name, data.email, data.password, data.role, data.createdAt, data.blogsCount));
-        //             setIsLoggedIn(true);
-        //         }
-        //     });
-        // }
     }, [name,email,password,role]);
 
   return (
