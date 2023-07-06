@@ -13,6 +13,7 @@ import DisplayBlog from './Components/DisplayBlog';
 import MakeBlog from './Components/MakeBlog';
 import EditProfile from './Components/EditProfile';
 import UploadImage from './Components/UploadImage';
+import EditBlog from './Components/EditBlog';
 export const AppContext = createContext();
 
 class User {
@@ -44,10 +45,13 @@ function App() {
           <Route path='/myBlogs' element={isLoggedIn === 1 ? <UserBlogs /> : <Login />} />
           <Route path='/makeBlog' element={isLoggedIn === 1 ? <MakeBlog /> : <Login />} />
           <Route path='/editProfile' element={isLoggedIn === 1 ? <EditProfile /> : <Login />} />
+          <Route path='/updateBlog/:id' element={isLoggedIn === 1 ? <EditBlog /> : <Login />} />
+          {/* <Route path='/likeBlog/:id' element={isLoggedIn === 1 ? <LikeBlog /> : <Login />} /> */}
+          {/* <Route path='/deleteBlog' element={isLoggedIn === 1 ? <DeleteBlog /> : <Login />} /> */}
           <Route path='/uploadImage' element={isLoggedIn === 1 ? <UploadImage /> : <Login />} />
           <Route path='/login' element={<Login />} />
           <Route path='/logout' element={isLoggedIn === 1 ? <LogOut /> : <Login />} />
-          <Route path='/myBlogs/:id' element={isLoggedIn === 1 ? <DisplayBlog /> : <Login />} />
+          <Route path='/blog/:id' element={isLoggedIn === 1 ? <DisplayBlog /> : <Login />} />
           <Route path='/:id' element={isLoggedIn === 1 ? <DisplayBlog /> : <Login />} />
         </Routes>
         <Footer/>

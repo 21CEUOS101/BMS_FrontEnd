@@ -33,7 +33,7 @@ function NavBar() {
   return (
     <Navbar  expand="lg" className="bg-body-tertiary navbar">
       <Container>
-        <Navbar.Brand>React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand>BMS</Navbar.Brand>
         <Navbar.Toggle ariaControls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
