@@ -28,7 +28,7 @@ function Blogs() {
         <Grid container spacing={{ xs: 10, md: 5 }} columns={{ xs: 4, sm: 8, md: 12 }} >
             {Array.from(Array(data?.length)).map((_, index) => (
               <Grid item xs={12} sm={4} md={3} lg={5} key={index}>
-                    <Blog blog={data?.at(index)}/>
+                <Blog blog={data?.at(index)} isUpdate={false} />
                 </Grid>
             ))}
         </Grid>

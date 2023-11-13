@@ -25,10 +25,11 @@ function Login() {
         email: yup.string().email().required(),
         password: yup.string().min(8).max(15).required(),
     });
+    
+    const { setIsLoggedIn , setUser} = useContext(AppContext);
 
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
-    const { setIsLoggedIn , setUser} = useContext(AppContext);
     const { register, handleSubmit } = useForm({
         resolver: yupResolver(schema),
     });
@@ -66,7 +67,7 @@ function Login() {
                     else {
                         console.log("User found");
                         var user = new User(data.idString, data.name, data.email, data.password, data.role, data.created_at, data.blogs.length);
-                        console.log(user.blogsCount);
+                        console.log(user.blogsCount + " " + user.idString);
                         setUser(user);
                         setIsLoggedIn(1);
                     }
@@ -96,7 +97,7 @@ function Login() {
 
             <div className="form-outline mb-4">
                 <label className="form-label" htmlFor="form2Example2">Password</label>
-                    <input type="text" id="form2Example2" className="form-control" {...register("password")} />
+                    <input type="password" id="form2Example2" className="form-control" {...register("password")} />
             </div>
                 
                 <div className="row">

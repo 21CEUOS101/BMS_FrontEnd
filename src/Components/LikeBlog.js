@@ -11,7 +11,7 @@ function LikeBlog() {
     
     const LikeBlog = async () => {
         console.log("Liking the blog");
-        return await Axios.put(`http://localhost:8080/likeBlog/${id}/${like}`).then((response) => {
+        return await Axios.post(`http://localhost:8080/likeBlog/${id}/${like}`).then((response) => {
           return response.data;
         });
       }
